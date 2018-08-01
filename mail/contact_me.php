@@ -53,12 +53,12 @@ $mail->Host = 'email-smtp.us-east-1.amazonaws.com';
 $mail->Subject = 'Amazon SES test (SMTP interface accessed using PHP)';
 
 // The HTML-formatted body of the email
-/*$mail->Body = '<h1>Comentario desde la web</h1>
+$mail->Body = '<h1>Comentario desde la web</h1>
     <p>This email was sent through the 
     <a href="https://aws.amazon.com/ses">Amazon SES</a> SMTP
     interface using the <a href="https://github.com/PHPMailer/PHPMailer">
-    PHPMailer</a> class.</p>';*/
-$mail->Body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+    PHPMailer</a> class.</p>';
+/*$mail->Body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";*/
 
 // Tells PHPMailer to use SMTP authentication
 $mail->SMTPAuth = true;
