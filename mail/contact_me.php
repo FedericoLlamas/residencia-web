@@ -1,4 +1,9 @@
 <?php
+
+// Modify the path in the require statement below to refer to the 
+// location of your Composer autoload.php file.
+require '/usr/local/lib/vendor/autoload.php';
+
 // Check for empty fields
 if(empty($_POST['name'])  		||
    empty($_POST['email']) 		||
@@ -12,13 +17,68 @@ if(empty($_POST['name'])  		||
 $name = $_POST['name'];
 $email_address = $_POST['email'];
 $message = $_POST['message'];
-	
-// Create the email and send the message
-$to = 'fede.llamas@gmail.com'; // Add your email address inbetween the '' replacing yourname@yourdomain.com - This is where the form will send a message to.
-$email_subject = "Website Contact Form:  $name";
-$email_body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
-$headers = "From: noreply@yourdomain.com\n"; // This is the email address the generated message will be from. We recommend using something like noreply@yourdomain.com.
-$headers .= "Reply-To: $email_address";	
-mail($to,$email_subject,$email_body,$headers);
-return true;			
+
+// Instantiate a new PHPMailer 
+$mail = new PHPMailer;
+
+// Tell PHPMailer to use SMTP
+$mail->isSMTP();
+
+// Replace sender@example.com with your "From" address. 
+// This address must be verified with Amazon SES.
+$mail->setFrom('fede.llamas@gmail.com', 'Federico Llamas');
+
+// Replace recipient@example.com with a "To" address. If your account 
+// is still in the sandbox, this address must be verified.
+// Also note that you can include several addAddress() lines to send
+// email to multiple recipients.
+$mail->addAddress('ggrraaccccii@gmail.com', 'Test Email');
+
+// Replace smtp_username with your Amazon SES SMTP user name.
+$mail->Username = 'AKIAIWROK4H74GUAOGHA';
+
+// Replace smtp_password with your Amazon SES SMTP password.
+$mail->Password = 'AhGLmmenaMUBBcJsinW/hFw8bkPe1bUUB2CZiZOCy000';
+    
+// Specify a configuration set. If you do not want to use a configuration
+// set, comment or remove the next line.
+/*$mail->addCustomHeader('X-SES-CONFIGURATION-SET', 'ConfigSet');*/
+ 
+// If you're using Amazon SES in a region other than US West (Oregon), 
+// replace email-smtp.us-west-2.amazonaws.com with the Amazon SES SMTP  
+// endpoint in the appropriate region.
+$mail->Host = 'email-smtp.us-east-1.amazonaws.com';
+
+// The subject line of the email
+$mail->Subject = 'Amazon SES test (SMTP interface accessed using PHP)';
+
+// The HTML-formatted body of the email
+/*$mail->Body = '<h1>Comentario desde la web</h1>
+    <p>This email was sent through the 
+    <a href="https://aws.amazon.com/ses">Amazon SES</a> SMTP
+    interface using the <a href="https://github.com/PHPMailer/PHPMailer">
+    PHPMailer</a> class.</p>';*/
+$mail->Body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+
+// Tells PHPMailer to use SMTP authentication
+$mail->SMTPAuth = true;
+
+// Enable TLS encryption over port 587
+$mail->SMTPSecure = 'tls';
+$mail->Port = 587;
+
+// Tells PHPMailer to send HTML-formatted email
+$mail->isHTML(true);
+
+// The alternative email body; this is only displayed when a recipient
+// opens the email in a non-HTML email client. The \r\n represents a 
+// line break.
+$mail->AltBody = "Email Test\r\nThis email was sent through the 
+    Amazon SES SMTP interface using the PHPMailer class.";
+
+if(!$mail->send()) {
+    echo "Email not sent. " , $mail->ErrorInfo , PHP_EOL;
+} else {
+    echo "Email sent!" , PHP_EOL;
+}
 ?>
