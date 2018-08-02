@@ -32,7 +32,7 @@ $mail->setFrom('fede.llamas@gmail.com', 'Federico Llamas');
 // is still in the sandbox, this address must be verified.
 // Also note that you can include several addAddress() lines to send
 // email to multiple recipients.
-$mail->addAddress('ggrraaccccii@gmail.com', 'Test Email');
+$mail->addAddress('ggrraaccccii@gmail.com', 'fede.llamas@gmail.com', 'Test Email');
 
 // Replace smtp_username with your Amazon SES SMTP user name.
 $mail->Username = 'AKIAIWROK4H74GUAOGHA';
@@ -50,15 +50,14 @@ $mail->Password = 'AhGLmmenaMUBBcJsinW/hFw8bkPe1bUUB2CZiZOCy000';
 $mail->Host = 'email-smtp.us-east-1.amazonaws.com';
 
 // The subject line of the email
-$mail->Subject = 'Amazon SES test (SMTP interface accessed using PHP)';
+$mail->Subject = 'Residencia Carolina del Norte (WEB)';
 
 // The HTML-formatted body of the email
-/*$mail->Body = '<h1>Comentario desde la web</h1>
-    <p>This email was sent through the 
-    <a href="https://aws.amazon.com/ses">Amazon SES</a> SMTP
-    interface using the <a href="https://github.com/PHPMailer/PHPMailer">
-    PHPMailer</a> class.</p>';*/
-$mail->Body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+$mail->Body = '<h1>Comentario desde la web</h1>
+    <p>Nombre: '$name'</p>
+    <p>Email: '$email_address'</p>
+    <p>Mensaje: '$message'</p>';
+/*$mail->Body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";*/
 
 // Tells PHPMailer to use SMTP authentication
 $mail->SMTPAuth = true;
