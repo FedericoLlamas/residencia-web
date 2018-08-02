@@ -32,7 +32,11 @@ $mail->setFrom('fede.llamas@gmail.com', 'Federico Llamas');
 // is still in the sandbox, this address must be verified.
 // Also note that you can include several addAddress() lines to send
 // email to multiple recipients.
-$mail->addAddress('ggrraaccccii@gmail.com', 'fede.llamas@gmail.com', 'Test Email');
+$mail->addAddress('ggrraaccccii@gmail.com', 'Person One');
+$mail->addAddress('fede.llamas@gmail.com', 'Person Two');
+
+$mail->AddCC('person1@domain.com', 'Person One');
+$mail->AddCC('person2@domain.com', 'Person Two');
 
 // Replace smtp_username with your Amazon SES SMTP user name.
 $mail->Username = 'AKIAIWROK4H74GUAOGHA';
