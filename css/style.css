@@ -241,7 +241,7 @@ header .intro-text {
 	padding-left: 40px;
 }
 #services img {
-	width: 300px;
+	/*width: 300px;*/
 	border-radius: 75px 0 75px 0;
 	box-shadow: 15px 0 #6d1f25;
 }
