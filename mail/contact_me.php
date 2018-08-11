@@ -28,13 +28,13 @@ $mail->isSMTP();
 
 // Replace sender@example.com with your "From" address. 
 // This address must be verified with Amazon SES.
-$mail->setFrom('infocarolinadelnorte@gmail.com', 'Carolina del Norte (Web)');
+$mail->setFrom('Infocarolinadelnorte@gmail.com', 'Carolina del Norte (Web)');
 
 // Replace recipient@example.com with a "To" address. If your account 
 // is still in the sandbox, this address must be verified.
 // Also note that you can include several addAddress() lines to send
 // email to multiple recipients.
-$mail->addAddress('ggrraaccccii@gmail.com', 'Test email');
+$mail->addAddress('Agustinfabre@gmail.com', 'Web email');
 
 // Replace smtp_username with your Amazon SES SMTP user name.
 $mail->Username = 'AKIAIWROK4H74GUAOGHA';
