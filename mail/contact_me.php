@@ -7,7 +7,8 @@ require '/usr/local/lib/vendor/autoload.php';
 // Check for empty fields
 if(empty($_POST['name'])  		||
    empty($_POST['email']) 		||
-   empty($_POST['message'])	||
+   empty($_POST['message']) ||
+   empty($_POST['phone'])	||
    !filter_var($_POST['email'],FILTER_VALIDATE_EMAIL))
    {
 	echo "No arguments Provided!";
@@ -17,6 +18,7 @@ if(empty($_POST['name'])  		||
 $name = $_POST['name'];
 $email_address = $_POST['email'];
 $message = $_POST['message'];
+$phone = $_POST['phone'];
 
 // Instantiate a new PHPMailer 
 $mail = new PHPMailer;
@@ -26,7 +28,7 @@ $mail->isSMTP();
 
 // Replace sender@example.com with your "From" address. 
 // This address must be verified with Amazon SES.
-$mail->setFrom('fede.llamas@gmail.com', 'Federico Llamas');
+$mail->setFrom('infocarolinadelnorte@gmail.com', 'Carolina del Norte (Web)');
 
 // Replace recipient@example.com with a "To" address. If your account 
 // is still in the sandbox, this address must be verified.
@@ -57,7 +59,7 @@ $mail->Subject = 'Residencia Carolina del Norte (WEB)';
     <p>Nombre: '$name'</p>
     <p>Email: '$email_address'</p>
     <p>Mensaje: '$message'</p>';*/
-$mail->Body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message";
+$mail->Body = "You have received a new message from your website contact form.\n\n"."Here are the details:\n\nName: $name\n\nEmail: $email_address\n\nMessage:\n$message\n\nPhone:\n$phone";
 
 // Tells PHPMailer to use SMTP authentication
 $mail->SMTPAuth = true;
