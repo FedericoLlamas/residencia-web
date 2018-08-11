@@ -189,7 +189,7 @@ a:focus, .btn:focus, .btn:active:focus, .btn.active:focus, .btn.focus, .btn:acti
 }
 .intro h1 {
 	color: #fff;
-	font-size: 90px;
+	font-size: 68px;
 	font-weight: 400;
 	margin-top: 0;
 	margin-bottom: 10px;
@@ -241,7 +241,7 @@ header .intro-text {
 	padding-left: 40px;
 }
 #services img {
-	/*width: 300px;*/
+	width: 300px;
 	border-radius: 75px 0 75px 0;
 	box-shadow: 15px 0 #6d1f25;
 }
