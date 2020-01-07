@@ -324,17 +324,17 @@
     </div>
     <div class="col-md-8">
       <h3>Déjanos un mensaje</h3>
-      <form name="sentMessage" id="contactForm" novalidate>
+      <form name="sentMessage" method='POST' action='https://getform.io/f/922d7fe5-1e6e-4160-9c9c-174a51e0acc5' id="contactForm" novalidate>
         <div class="row">
           <div class="col-md-6">
             <div class="form-group">
-              <input type="text" id="name" class="form-control" placeholder="Nombre" required="required">
+              <input type="text" name='name' id="name" class="form-control" placeholder="Nombre" required="required">
               <p class="help-block text-danger"></p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="email" id="email" class="form-control" placeholder="Email" required="required">
+              <input type="email" name='email' id="email" class="form-control" placeholder="Email" required="required">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -342,7 +342,7 @@
         <div class='row'>
           <div class="col-md-6">
             <div class="form-group">
-              <input type="phone" id="phone" class="form-control" placeholder="Teléfono" required="required">
+              <input type="phone" name='phone' id="phone" class="form-control" placeholder="Teléfono" required="required">
               <p class="help-block text-danger"></p>
             </div>
           </div>
@@ -378,7 +378,6 @@
 <script type="text/javascript" src="js/nivo-lightbox.js"></script> 
 <script type="text/javascript" src="js/jquery.isotope.js"></script> 
 <script type="text/javascript" src="js/jqBootstrapValidation.js"></script> 
-<script type="text/javascript" src="js/contact_me.js"></script> 
 <script type="text/javascript" src="js/main.js"></script>
 
 </body>
